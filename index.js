@@ -104,7 +104,8 @@ async function run() {
     });
 
     app.get("/projects", async (req, res) => {
-      const result = await projectCollection.find({}).reverse().toArray();
+      const result = await projectCollection.find({}).toArray();
+      result.reverse();
       res.send(result);
     });
     app.get("/projects/:id", async (req, res) => {
